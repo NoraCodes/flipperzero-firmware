@@ -64,6 +64,10 @@ bool dolphin_state_load(DolphinState* dolphin_state) {
         }
     }
 
+    // NOTE: (NORA) We preserve the check above because we don't want to
+    // load corrupted dolphins. But we always pretend butthurt is MIN.
+    dolphin_state->data.butthurt = BUTTHURT_MIN;
+
     if(!success) {
         FURI_LOG_W(TAG, "Reset dolphin-state");
         memset(dolphin_state, 0, sizeof(*dolphin_state));
