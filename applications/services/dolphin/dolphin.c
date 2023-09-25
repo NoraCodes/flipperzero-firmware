@@ -185,9 +185,7 @@ int32_t dolphin_srv(void* p) {
                 dolphin_state_clear_limits(dolphin->state);
                 dolphin_state_save(dolphin->state);
             } else if(event.type == DolphinEventTypeIncreaseButthurt) {
-                FURI_LOG_I(TAG, "Increase butthurt");
-                dolphin_state_butthurted(dolphin->state);
-                dolphin_state_save(dolphin->state);
+                FURI_LOG_I(TAG, "Increase butthurt (inhibited)");
             }
             dolphin_event_release(dolphin, &event);
         } else {
